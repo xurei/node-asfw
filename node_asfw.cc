@@ -19,7 +19,20 @@ NAN_METHOD(_SetForegroundWindow) {
     }
 
     HWND hwnd = (HWND)(maybeArg.FromJust());
-    ShowWindow(hwnd, SW_RESTORE);
+    WINDOWPLACEMENT wp;
+    wp.length = sizeof(WINDOWPLACEMENT);
+
+    if (GetWindowPlacement(hwnd, &wp)) {
+		if (wp.showCmd == SW_MINIMIZE || wp.showCmd == SW_SHOWMINIMIZED || wp.showCmd == SW_SHOWMINNOACTIVE) {
+			ShowWindow(hwnd, SW_RESTORE);
+		}
+		else {
+    		ShowWindow(hwnd, SW_SHOW);
+    	}
+	}
+	else {
+		ShowWindow(hwnd, SW_SHOW);
+	}
 
     BOOL ret = SetForegroundWindow(hwnd);
     if (ret == 0) {
