@@ -15,7 +15,7 @@ NAN_METHOD(_SetForegroundWindow) {
     }
     auto maybeArg = Nan::To<int64_t>(info[0]);
     if (maybeArg.IsNothing()) {
-        Nan::ThrowError("SetForegroundWindow needs a number argumeng");
+        Nan::ThrowError("SetForegroundWindow needs a number argument");
     }
 
     HWND hwnd = (HWND)(maybeArg.FromJust());
@@ -23,16 +23,16 @@ NAN_METHOD(_SetForegroundWindow) {
     wp.length = sizeof(WINDOWPLACEMENT);
 
     if (GetWindowPlacement(hwnd, &wp)) {
-		if (wp.showCmd == SW_MINIMIZE || wp.showCmd == SW_SHOWMINIMIZED || wp.showCmd == SW_SHOWMINNOACTIVE) {
-			ShowWindow(hwnd, SW_RESTORE);
-		}
-		else {
-    		ShowWindow(hwnd, SW_SHOW);
+        if (wp.showCmd == SW_MINIMIZE || wp.showCmd == SW_SHOWMINIMIZED || wp.showCmd == SW_SHOWMINNOACTIVE) {
+            ShowWindow(hwnd, SW_RESTORE);
+        }
+        else {
+            ShowWindow(hwnd, SW_SHOW);
     	}
-	}
-	else {
-		ShowWindow(hwnd, SW_SHOW);
-	}
+    }
+    else {
+        ShowWindow(hwnd, SW_SHOW);
+    }
 
     BOOL ret = SetForegroundWindow(hwnd);
     if (ret == 0) {
