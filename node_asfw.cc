@@ -2,7 +2,6 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include <winuser.h>
 
 #if defined(WIN32)
 
