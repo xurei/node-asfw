@@ -6,13 +6,14 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "test": "node test/index.js"
+    "test": "node test/index.js",
+    "build": "node-gyp rebuild"
   },
   "author": "Amos Wenger <amos@itch.io>",
   "license": "MIT",
   "dependencies": {
-    "bindings": "^1.2.1",
-    "nan": "^2.5.1"
+    "bindings": "^1.5.0",
+    "nan": "^2.14.1"
   },
   "devDependencies": {
     "tape": "^4.6.3"
