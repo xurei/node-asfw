@@ -2,9 +2,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include <windows.h>
 #include <winuser.h>
-#include <conio.h>
 
 #if defined(WIN32)
 
