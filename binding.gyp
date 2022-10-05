@@ -1,4 +1,7 @@
 {
+    "variables": {
+        "openssl_fips" : "0" 
+    },
     "targets": [
         {
             "target_name": "node_asfw",
@@ -7,8 +10,5 @@
             ],
             "sources": [ "addon.cc", "node_asfw.cc" ],
         }
-    ],
-    "variables": {
-        "openssl_fips" : "0" 
-    }
+    ]
 }
