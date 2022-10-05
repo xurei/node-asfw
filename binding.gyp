@@ -8,5 +8,7 @@
             "sources": [ "addon.cc", "node_asfw.cc" ],
         }
     ],
-    "openssl_fips": ""
+    "variables": {
+        "openssl_fips": "",
+    }
 }
